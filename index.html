@@ -11,133 +11,113 @@
       background: linear-gradient(120deg, #ff9a9e, #fad0c4);
       color: white;
       text-align: center;
-      overflow-x: hidden;
     }
-
-    .container {
-      padding: 40px 20px;
-    }
-
-    .hidden {
-      display: none;
-    }
-
+    .container { padding: 40px 20px; }
+    .hidden { display: none; }
     button {
       padding: 12px 24px;
       border: none;
       border-radius: 25px;
       background: white;
       color: #ff4e50;
-      font-size: 16px;
       cursor: pointer;
       margin-top: 20px;
     }
-
     img {
-      width: 250px;
-      border-radius: 15px;
+      width: 220px;
+      border-radius: 12px;
       margin: 10px;
-      transition: transform 0.3s;
     }
-
-    img:hover {
-      transform: scale(1.05);
-    }
-
-    .fade {
-      animation: fadeIn 1.5s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    video {
-      width: 300px;
-      margin: 10px;
-      border-radius: 10px;
-    }
+    .fade { animation: fadeIn 1s ease-in; }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
   </style>
 </head>
 <body>
 
-  <div class="container fade" id="screen1">
-    <h1>Hey Lavanya 💖</h1>
-    <p>I made something for you...</p>
-    <button onclick="nextScreen(1)">Click Me</button>
-  </div>
+<div class="container" id="screen1">
+  <h2>Hey.</h2>
+  <p>Before you do anything else today,<br>just take 2 minutes and go through this 🙂</p>
+  <img src="photos/p1.jpg">
+  <br><button onclick="next(1)">Start</button>
+</div>
 
-  <div class="container hidden" id="screen2">
-    <h2>Before we start... 🎈</h2>
-    <p>This is not just a birthday page...</p>
-    <button onclick="nextScreen(2)">Continue</button>
-  </div>
+<div class="container hidden" id="screen2">
+  <p>Hmmm should I do this in english or telugu 🤔🤔<br>
+  Ayina enduku intha thinking... rendu mix chesi kotdham le 😂</p>
+  <img src="photos/p2.jpg">
+  <br><button onclick="next(2)">Next</button>
+</div>
 
-  <div class="container hidden" id="screen3">
-    <h2>It's a small journey 💫</h2>
-    <p>Through moments, smiles, and memories...</p>
-    <button onclick="nextScreen(3)">Let's Go</button>
-  </div>
+<div class="container hidden" id="screen3">
+  <p>Lavanya.................<br>
+  Ela start cheyyali abbaaaaa...........<br>
+  Any tips ? 😄<br><br>
+  Nen enti ne birthday ki ninne tips aduguthunna 😂<br>
+  First time chesthunna so mistakes unte forgive cheyyi.<br><br>
+  As usual... money ledu gift ki 😢 sorry ra.</p>
+  <img src="photos/p3.jpg">
+  <br><button onclick="next(3)">Next</button>
+</div>
 
-  <div class="container hidden" id="screen4">
-    <h2>Some Things About You 😊</h2>
-    <p>✨ You make everything brighter</p>
-    <p>✨ Your smile = instant happiness</p>
-    <p>✨ You’re rare, don’t forget that</p>
-    <button onclick="nextScreen(4)">Next</button>
-  </div>
+<div class="container hidden" id="screen4">
+  <p>I was thinking what to get you for your birthday…<br>
+  but anything I buy would feel temporary.<br><br>
+  So I thought I’ll just do this instead.<br><br>
+  You’re one of the very few people I feel completely comfortable around.<br>
+  No pressure, no pretending… just easy.<br>
+  And that’s rare.</p>
+  <img src="photos/p4.jpg">
+  <br><button onclick="next(4)">Next</button>
+</div>
 
-  <div class="container hidden" id="screen5">
-    <h2>Memories 📸</h2>
-    <img src="https://picsum.photos/300?1">
-    <img src="https://picsum.photos/300?2">
-    <img src="https://picsum.photos/300?3">
-    <p>(Replace these with your real photos)</p>
-    <button onclick="nextScreen(5)">Next</button>
-  </div>
+<div class="container hidden" id="screen5">
+  <p>Chalo let's not waste your time...<br><br>
+  I still remember your last look in Mumbai train.<br>
+  Maybe akkade nenu konchem stuck ayya emo.<br><br>
+  Nenu normally distance ayithe connections lose aipotha…
+  but with you, I’m still trying.<br><br>
+  Maybe gap vachindi… but think once… you’ll understand.</p>
+  <img src="photos/p5.jpg">
+  <br><button onclick="next(5)">Next</button>
+</div>
 
-  <div class="container hidden" id="screen6">
-    <h2>More Memories 💖</h2>
-    <img src="https://picsum.photos/300?4">
-    <img src="https://picsum.photos/300?5">
-    <img src="https://picsum.photos/300?6">
-    <button onclick="nextScreen(6)">Next</button>
-  </div>
+<div class="container hidden" id="screen6">
+  <p>Laavvvvaaaaaannnnnyyyyaaaaaaa 🎉<br>
+  Happiest Birthday 🥳<br><br>
+  Naa life lo nuvvu unnanduku nenu chala happy.<br>
+  Naa low lo nannu ardham cheskuni unnaav… thanks for that.<br><br>
+  Nuvvu eppudu ilaage navvutu undali 😊</p>
+  <img src="photos/p6.jpg">
+  <br><button onclick="next(6)">Next</button>
+</div>
 
-  <div class="container hidden" id="screen7">
-    <h2>Videos 🎥</h2>
-    <video controls>
-      <source src="video1.mp4" type="video/mp4">
-    </video>
-    <video controls>
-      <source src="video2.mp4" type="video/mp4">
-    </video>
-    <p>(Upload your videos and replace names)</p>
-    <button onclick="nextScreen(7)">Next</button>
-  </div>
+<div class="container hidden" id="screen7">
+  <p>There’s something about you that stands out.<br>
+  The way you think… the way you handle things… it’s different.<br><br>
+  I genuinely respect that.</p>
+  <img src="photos/p7.jpg">
+  <br><button onclick="next(7)">Next</button>
+</div>
 
-  <div class="container hidden" id="screen8">
-    <h2>Random Thoughts 💭</h2>
-    <p>Life feels lighter when you're around</p>
-    <p>Every moment becomes a memory with you</p>
-    <p>You're one of those people I’m really glad I met</p>
-    <button onclick="nextScreen(8)">Next</button>
-  </div>
+<div class="container hidden" id="screen8">
+  <p>I still remember the day you came into my life.<br>
+  It was small… but it meant a lot.<br>
+  And that stayed with me.</p>
+  <img src="photos/p8.jpg">
+  <br><button onclick="next(8)">Final</button>
+</div>
 
-  <div class="container hidden" id="screen9">
-    <h2>Final Message 🎂</h2>
-    <p>Happy Birthday Lavanya ❤️</p>
-    <p>I hope this year brings you everything you deserve and more.</p>
-    <p>And yeah… stay the amazing person you are.</p>
-  </div>
+<div class="container hidden" id="screen9">
+  <h2>Happy Birthday Lavanya ❤️</h2>
+  <p>This was my small effort for you.</p>
+</div>
 
-  <script>
-    function nextScreen(current) {
-      document.getElementById('screen' + current).classList.add('hidden');
-      document.getElementById('screen' + (current + 1)).classList.remove('hidden');
-    }
-  </script>
+<script>
+function next(n){
+  document.getElementById('screen'+n).classList.add('hidden');
+  document.getElementById('screen'+(n+1)).classList.remove('hidden');
+}
+</script>
 
 </body>
 </html>
