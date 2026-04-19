@@ -115,15 +115,18 @@ function n(x){
 function typeEffect(container){
  let el=container.querySelector('.type');
  if(!el) return;
- let text=el.innerHTML;
- el.innerHTML='';
+ let text=el.innerText; // safer (keeps text, avoids breaking HTML)
+ el.innerText='';
  let i=0;
  function type(){
   if(i<text.length){
-    el.innerHTML+=text.charAt(i);
+    el.innerText+=text.charAt(i);
     i++;
     setTimeout(type,20);
   }
+ }
+ type();
+}
  }
  type();
 }
