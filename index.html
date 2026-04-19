@@ -5,24 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Lavanya 🎉</title>
 <style>
-body {margin:0;font-family:'Segoe UI';background:linear-gradient(120deg,#ff9a9e,#fad0c4);color:white;text-align:center;}
-.container{padding:40px 20px;}
+body {margin:0;font-family:'Segoe UI';background:linear-gradient(120deg,#ff9a9e,#fad0c4);color:white;text-align:center;overflow:hidden;}
+.container{padding:40px 20px;position:absolute;width:100%;top:0;left:0;opacity:0;transform:translateY(20px);transition:all 0.8s ease;}
+.show{opacity:1;transform:translateY(0);}
 .hidden{display:none;}
 button{padding:12px 24px;border:none;border-radius:25px;background:white;color:#ff4e50;cursor:pointer;margin-top:20px;}
 img{width:180px;border-radius:12px;margin:8px;}
 video{width:250px;margin:10px;border-radius:10px;}
 .quote{font-style:italic;margin-top:15px;}
+#musicBtn{position:fixed;bottom:20px;right:20px;background:white;color:#ff4e50;border-radius:50%;padding:10px 15px;cursor:pointer;}
 </style>
 </head>
 <body>
 
-<div class="container" id="s1">
-<p>Hey 👀<br>Before you do anything else today,<br>just take 2 minutes and go through this 🙂</p>
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<div id="musicBtn" onclick="toggleMusic()">🎵</div>
+
+<div class="container show" id="s1">
+<p class="type">Hey 👀<br>Before you do anything else today,<br>just take 2 minutes and go through this 🙂</p>
 <button onclick="n(1)">Start 🚀</button>
 </div>
 
-<div class="container hidden" id="s2">
-<p>I was thinking what to get you for your birthday… 🎁<br>
+<div class="container" id="s2">
+<p class="type">I was thinking what to get you for your birthday… 🎁<br>
 And honestly, anything I buy would feel temporary.<br>
 So I thought I’ll just do this instead.<br>
 You’re one of the very few people I feel completely comfortable around 🤍.<br>
@@ -32,62 +39,62 @@ Money kuda ledu anuko adi vere Vishyam 😄</p>
 <button onclick="n(2)">Next ➡️</button>
 </div>
 
-<div class="container hidden" id="s3">
+<div class="container" id="s3">
 <h2>Happy Birthday Lavanya ❤️🎂</h2>
-<p>Naa life lo random ga vachina person kaadhu nuvvu, slowly one of the most important person ayyav.<br>
+<p class="type">Naa life lo random ga vachina person kaadhu nuvvu, slowly one of the most important person ayyav.<br>
 Nee smile, nee vibe, nee presence unte chaalu day automatic ga better aipothundi 😊.<br>
 Anduke roju morning Message chestha nuvvu lekavu annuko adi vere vishyam...<br><br>
 Today is not just your birthday, today is the day my favorite human was born 💫.</p>
 <p class="quote">“Some people enter life and become a memory, but you entered my life and became an emotion.” ✨</p>
 <img src="photos/s3_1.jpg"><img src="photos/s3_2.jpg">
-<br><button onclick="n(3)">Next ➡️</button>
+<button onclick="n(3)">Next ➡️</button>
 </div>
 
-<div class="container hidden" id="s4">
+<div class="container" id="s4">
 <h2>Our Memories = My Favorite Chapter ❤️📸</h2>
-<p>Manam kalisi chesina china chinna moments like daily morning Office velladam, nenu late Chesthe nuvve pettey Serious face 😄 and uder shuttle.<br>
+<p class="type">Manam kalisi chesina china chinna moments like daily morning Office velladam, nenu late Chesthe nuvve pettey Serious face 😄 and uder shuttle.<br>
 Office lo evero strangers laga behave cheyyadam. Manam vellina restaurants and kalisi thinna food 🍕 and inka idigo kinda Pic lo unna Pizza hut & kfc.</p>
 <p class="quote">“You are not just my friend, you are a comfort place, a happy space, and one of the best blessings in my life.” 💖</p>
 <img src="photos/s4_1.jpg"><img src="photos/s4_2.jpg"><img src="photos/s4_3.jpg">
-<br><button onclick="n(4)">Next ➡️</button>
+<button onclick="n(4)">Next ➡️</button>
 </div>
 
-<div class="container hidden" id="s5">
-<p>Ela memories ki pothe nen Swiggy delivery boy ga chesthunte nuvva nastho join avvadam late night lo 🌙, Varsham 🌧️, sun ki ☀️, Ala orders anni complete cheskoni ardha rathri Naturals oo iceream tinadam 🍦. Ela chala unnai anni natho ne alane undipoyay safe ga heart loo ❤️...</p>
+<div class="container" id="s5">
+<p class="type">Ela memories ki pothe nen Swiggy delivery boy ga chesthunte nuvva nastho join avvadam late night lo 🌙, Varsham 🌧️, sun ki ☀️, Ala orders anni complete cheskoni ardha rathri Naturals oo iceream tinadam 🍦. Ela chala unnai anni natho ne alane undipoyay safe ga heart loo ❤️...</p>
 <p>Every memory with you is close to my heart 🤍.</p>
 <p>Nen na life lo happy moments gurunchi think chesthe most of the moments lo nuvvu unnav.</p>
 <img src="photos/s5_1.jpg"><img src="photos/s5_2.jpg"><img src="photos/s5_3.jpg">
-<br><button onclick="n(5)">Next ➡️</button>
+<button onclick="n(5)">Next ➡️</button>
 </div>
 
-<div class="container hidden" id="s6">
+<div class="container" id="s6">
 <h2>Why You Mean So Much 💫</h2>
-<p>You are strong independent women 💪, you are so kind 🤍, very very beautiful 🌸, and one of the realest women I know.<br>
+<p class="type">You are strong independent women 💪, you are so kind 🤍, very very beautiful 🌸, and one of the realest women I know.<br>
 Neku Edo cheyyali and ela undali anipisthe ala untav.<br>
 Nee caring nature, nee support, nee pichi, nee honesty, nee kopam, nee badha — ivanni ninnu inka special chestayi.<br>
 You make people around you feel safe, happy, and loved ❤️.</p>
 <p class="quote">“I may not say this every day, but having you in my life is one of the best things that ever happened to me.” 💖</p>
 <img src="photos/s6.jpg">
-<br><button onclick="n(6)">Next ➡️</button>
+<button onclick="n(6)">Next ➡️</button>
 </div>
 
-<div class="container hidden" id="s7">
+<div class="container" id="s7">
 <h2>No Matter What 🤞</h2>
-<p>Life ekkada ki teeskelina, mana bond matram same ga undali 💛.<br>
+<p class="type">Life ekkada ki teeskelina, mana bond matram same ga undali 💛.<br>
 More memories, more jokes, more celebrations, and more reasons to smile together 😊.<br>
 I really wish this year gives you peace, success, happiness, and everything your heart truly wants ✨.</p>
 <img src="photos/s7_1.jpg"><img src="photos/s7_2.jpg">
-<br><button onclick="n(7)">Next ➡️</button>
+<button onclick="n(7)">Next ➡️</button>
 </div>
 
-<div class="container hidden" id="s8">
-<p>Happy Birthday once again Lavanya 🎂❤️.<br>
+<div class="container" id="s8">
+<p class="type">Happy Birthday once again Lavanya 🎂❤️.<br>
 Nee life antha love tho, light tho, and unforgettable moments tho fill avvali ✨.<br>
 Keep shining, keep smiling 😊, and always remember — you are deeply valued, truly loved, and forever special to me 💖.</p>
 <button onclick="n(8)">Videos 🎥</button>
 </div>
 
-<div class="container hidden" id="s9">
+<div class="container" id="s9">
 <h2>Memories 🎥</h2>
 <video controls src="videos/v1.mp4"></video>
 <video controls src="videos/v2.mp4"></video>
@@ -95,7 +102,38 @@ Keep shining, keep smiling 😊, and always remember — you are deeply valued, 
 </div>
 
 <script>
-function n(x){document.getElementById('s'+x).classList.add('hidden');document.getElementById('s'+(x+1)).classList.remove('hidden');}
+let current=1;
+function n(x){
+ document.getElementById('s'+x).classList.remove('show');
+ document.getElementById('s'+x).classList.add('hidden');
+ let next=document.getElementById('s'+(x+1));
+ next.classList.remove('hidden');
+ setTimeout(()=>next.classList.add('show'),50);
+ typeEffect(next);
+}
+
+function typeEffect(container){
+ let el=container.querySelector('.type');
+ if(!el) return;
+ let text=el.innerHTML;
+ el.innerHTML='';
+ let i=0;
+ function type(){
+  if(i<text.length){
+    el.innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,20);
+  }
+ }
+ type();
+}
+
+typeEffect(document.getElementById('s1'));
+
+function toggleMusic(){
+ let m=document.getElementById('bgm');
+ if(m.paused){m.play();}else{m.pause();}
+}
 </script>
 
 </body>
