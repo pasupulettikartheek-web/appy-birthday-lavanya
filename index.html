@@ -113,15 +113,14 @@ video {
 
 <div id="intro">
   <div class="intro-text" id="introText">For someone special…</div>
-  <div style="position:absolute;bottom:30px;font-size:14px;opacity:0.7;">
-    Tap anywhere 🔊
-  </div>
 </div>
 
 <div class="container" id="s1">
 <p>Hey 👀<br>Before you do anything else today,<br>just take 2 minutes and go through this 🙂</p>
 <button onclick="startExperience()">Start 🚀</button>
 </div>
+
+<!-- ALL YOUR CONTENT REMAINS SAME BELOW -->
 
 <div class="container hidden" id="s2">
 <p>I was thinking what to get you for your birthday… 🎁<br>
@@ -213,75 +212,94 @@ Keep shining, keep smiling 😊, and always remember — you are deeply valued, 
 
   
 <audio id="bgMusic" loop>
-<source src="audio/music.mpeg" type="audio/mpeg">
+  <source src="audio/music.mpeg" type="audio/mpeg">
 </audio>
-
-<div style="position:fixed;bottom:15px;right:15px;">
-<input type="file" id="musicUpload" accept="audio/*">
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
-const music=document.getElementById("bgMusic");
-const uploader=document.getElementById("musicUpload");
-let musicStarted=false;
+const music = document.getElementById("bgMusic");
+let musicStarted = false;
 
-uploader.onchange=e=>{
-const file=e.target.files[0];
-if(file){
-music.src=URL.createObjectURL(file);
-music.play().catch(()=>{});
-musicStarted=true;
+// 🎵 Start music on first interaction
+function startMusicOnce(){
+  if(!musicStarted){
+    music.play().catch(()=>{});
+    musicStarted = true;
+  }
 }
-};
 
-document.addEventListener("click",()=>{
-if(!musicStarted){
-music.play().catch(()=>{});
-musicStarted=true;
+document.addEventListener("click", startMusicOnce);
+document.addEventListener("touchstart", startMusicOnce);
+
+// Slide navigation
+function startExperience(){
+  n(1);
 }
-});
-
-document.querySelectorAll("video").forEach(v=>{
-v.onplay=()=>{if(!music.paused)music.pause();}
-v.onpause=()=>{if(musicStarted)music.play().catch(()=>{});}
-v.onended=()=>{if(musicStarted)music.play().catch(()=>{});}
-});
-
-function startExperience(){n(1);}
 
 function n(x){
-const c=document.getElementById('s'+x);
-const n1=document.getElementById('s'+(x+1));
-c.style.opacity=0;
-setTimeout(()=>{
-c.classList.add('hidden');
-n1.classList.remove('hidden');
-n1.style.opacity=0;
-setTimeout(()=>{n1.style.opacity=1;},50);
-},300);
+  const current = document.getElementById('s'+x);
+  const next = document.getElementById('s'+(x+1));
+
+  current.style.opacity = 0;
+
+  setTimeout(()=>{
+    current.classList.add('hidden');
+    next.classList.remove('hidden');
+    next.style.opacity = 0;
+
+    setTimeout(()=>{
+      next.style.opacity = 1;
+    },50);
+
+  },300);
 }
 
+// Confetti
 function launchConfetti(){
-confetti({particleCount:150,spread:70,origin:{y:0.6}});
+  confetti({
+    particleCount:150,
+    spread:70,
+    origin:{y:0.6}
+  });
 }
 
-const introLines=["For someone special…","Not just another birthday…","But a story worth remembering…","Lavanya ❤️"];
-let i=0;
-const t=document.getElementById("introText");
+// Pause/resume music for videos
+document.querySelectorAll("video").forEach(v=>{
+  v.onplay = () => { if(!music.paused) music.pause(); };
+  v.onpause = () => { if(musicStarted) music.play().catch(()=>{}); };
+  v.onended = () => { if(musicStarted) music.play().catch(()=>{}); };
+});
+
+// Intro animation
+const introLines = [
+  "For someone special…",
+  "Not just another birthday…",
+  "But a story worth remembering…",
+  "Lavanya ❤️"
+];
+
+let i = 0;
+const t = document.getElementById("introText");
 
 function playIntro(){
-if(i<introLines.length){
-t.style.opacity=0;
-setTimeout(()=>{t.innerText=introLines[i];t.style.opacity=1;i++;},500);
-setTimeout(playIntro,2500);
-}else{
-document.getElementById("intro").style.opacity=0;
-setTimeout(()=>{document.getElementById("intro").style.display="none";},1500);
+  if(i < introLines.length){
+    t.style.opacity = 0;
+    setTimeout(()=>{
+      t.innerText = introLines[i];
+      t.style.opacity = 1;
+      i++;
+    },500);
+    setTimeout(playIntro, 2500);
+  } else {
+    document.getElementById("intro").style.opacity = 0;
+    setTimeout(()=>{
+      document.getElementById("intro").style.display = "none";
+    },1500);
+  }
 }
-}
-window.onload=playIntro;
+
+window.onload = playIntro;
 </script>
 
 </body>
