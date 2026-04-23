@@ -32,6 +32,34 @@ body::before {
   to {transform:translate(-200px,-200px);}
 }
 
+/* Cinematic intro */
+#intro {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  transition:opacity 1.5s ease;
+}
+
+.intro-text {
+  color:white;
+  font-size:28px;
+  letter-spacing:2px;
+  opacity:0;
+  animation:fadeText 2s ease forwards;
+}
+
+@keyframes fadeText {
+  0% {opacity:0; transform:translateY(20px);}
+  100% {opacity:1; transform:translateY(0);}
+}
+
 .container {
   padding:40px 20px;
   animation:fadeIn 1s ease;
@@ -93,6 +121,11 @@ video:hover {
 </head>
 
 <body>
+
+<!-- Cinematic Intro -->
+<div id="intro">
+  <div class="intro-text" id="introText">For someone special…</div>
+</div>
 
 <div class="container" id="s1">
 <p>Hey 👀<br>Before you do anything else today,<br>just take 2 minutes and go through this 🙂</p>
@@ -196,11 +229,45 @@ Keep shining, keep smiling 😊, and always remember — you are deeply valued, 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
+/* Cinematic intro */
+const introLines = [
+  "For someone special…",
+  "Not just another birthday…",
+  "But a story worth remembering…",
+  "Lavanya ❤️"
+];
+
+let i = 0;
+const textEl = document.getElementById("introText");
+
+function playIntro(){
+  if(i < introLines.length){
+    textEl.style.opacity = 0;
+
+    setTimeout(()=>{
+      textEl.innerText = introLines[i];
+      textEl.style.opacity = 1;
+      i++;
+    },500);
+
+    setTimeout(playIntro, 2500);
+  } else {
+    document.getElementById("intro").style.opacity = 0;
+    setTimeout(()=>{
+      document.getElementById("intro").style.display = "none";
+    },1500);
+  }
+}
+
+window.onload = playIntro;
+
+/* Start experience */
 function startExperience(){
   document.getElementById('bgMusic').play().catch(()=>{});
   n(1);
 }
 
+/* Slide transition */
 function n(x){
   const current = document.getElementById('s'+x);
   const next = document.getElementById('s'+(x+1));
@@ -219,6 +286,7 @@ function n(x){
   },300);
 }
 
+/* Confetti */
 function launchConfetti(){
   confetti({
     particleCount:150,
