@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Lavanya 🎉</title>
+<!-- ONLY SHOWING CHANGES — your content stays EXACTLY same -->
+
+<!-- ADD THIS RIGHT AFTER <body> -->
+
+<div id="giftIntro">
+  <div class="giftBox" onclick="openGift()">🎁</div>
+  <p class="tapText">Tap to open</p>
+</div>
 
 <style>
-body {
-  margin:0;
-  font-family:'Segoe UI';
-  background:linear-gradient(120deg,#ff9a9e,#fad0c4);
-  color:white;
-  text-align:center;
-  overflow-x:hidden;
-}
-
-/* Gift Intro */
-#giftScreen {
+#giftIntro {
   position:fixed;
   width:100%;
   height:100%;
@@ -28,165 +20,32 @@ body {
   z-index:9999;
 }
 
-.gift {
+.giftBox {
   font-size:80px;
   cursor:pointer;
-  animation:bounce 1.5s infinite;
+  animation:float 2s infinite;
 }
 
-@keyframes bounce {
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-20px);}
+.tapText {
+  margin-top:15px;
+  opacity:0.8;
 }
 
-/* Sections */
-.section {
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:30px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 1s ease;
+@keyframes float {
+  0%,100% {transform:translateY(0);}
+  50% {transform:translateY(-15px);}
 }
-
-.section.show {
-  opacity:1;
-  transform:translateY(0);
-}
-
-img {
-  width:180px;
-  border-radius:12px;
-  margin:8px;
-  transition:0.3s;
-}
-
-img:hover {transform:scale(1.08);}
-
-video {
-  width:250px;
-  border-radius:10px;
-  margin:10px;
-}
-
-.quote {font-style:italic;margin-top:10px;}
 </style>
-</head>
-
-<body>
-
-<!-- Gift Intro -->
-<div id="giftScreen">
-  <div style="font-size:20px;margin-bottom:20px;">Tap to open 🎁</div>
-  <div class="gift" onclick="openGift()">🎁</div>
-</div>
-
-<!-- Sections -->
-<div class="section">
-<p>Hey 👀<br>Before you do anything else today,<br>just take 2 minutes and go through this 🙂</p>
-</div>
-
-<div class="section">
-<p>I was thinking what to get you for your birthday… 🎁<br>
-And honestly, anything I buy would feel temporary.<br>
-So I thought I’ll just do this instead.<br>
-You’re one of the very few people I feel completely comfortable around 🤍.<br>
-No pressure, no pretending… just easy.<br>
-And that’s rare.<br><br>
-Money kuda ledu anuko adi vere Vishyam 😄</p>
-</div>
-
-<div class="section" id="birthday">
-<h2>Happiest Birthday Lavanya 🥳🎉🎂</h2>
-<p>Naa life lo random ga vachina person kaadhu nuvvu, slowly one of the most important person ayyav.<br>
-Nee smile, nee vibe, nee presence unte chaalu day automatic ga better aipothundi 😊.<br>
-Anduke roju morning Message chestha nuvvu dekavu annuko adi vere vishyam...<br><br>
-Today is not just your birthday, today is the day my favorite human was born 💫.</p>
-<p class="quote">“Some people enter life and become a memory, but you entered my life and became an emotion.” ✨</p>
-<img src="photos/s3_1.jpeg"><img src="photos/s3_2.jpeg">
-</div>
-
-<div class="section">
-<h2>Our Memories = My Favorite Chapter 📸</h2>
-<p>Manam kalisi chesina china chinna moments like daily morning Office velladam, nenu late Chesthe nuvve pettey Serious face 😄 and uder shuttle.<br>
-Office lo evero strangers laga behave cheyyadam. Manam vellina restaurants and kalisi thinna food 🍕 and inka idigo kinda Pic lo unna Pizza hut, late night akkada velli kurchoni ala oka pakka rain inkopakka nee badhalu and happiness & kfc.</p>
-<p class="quote">“You are not just my friend, you are a comfort place, a happy space, and one of the best blessings in my life.” 😇</p>
-<img src="photos/s4_1.jpeg"><img src="photos/s4_2.jpeg"><img src="photos/s4_3.jpeg">
-</div>
-
-<div class="section">
-<p>Ela memories ki pothe nen Swiggy delivery boy ga chesthunte nuvva natho join avvadam late night lo 🌙, Varsham 🌧️, sun ki ☀️...</p>
-<img src="photos/s5_1.jpeg"><img src="photos/s5_2.jpeg"><img src="photos/s5_3.jpeg">
-</div>
-
-<div class="section">
-<h2>Why You Mean So Much 💫</h2>
-<p>You are strong independent women 💪, you are so kind 🤍, very very beautiful 🌸...</p>
-<img src="photos/pic1.jpeg"><img src="photos/pic4.jpeg"><img src="photos/pic7.jpeg">
-<video controls src="videos/v4.mp4"></video>
-</div>
-
-<div class="section">
-<h2>No Matter What 🤞</h2>
-<p>Life ekkada ki teeskelina...</p>
-<img src="photos/s7_1.jpeg"><img src="photos/s7_2.jpeg">
-</div>
-
-<div class="section">
-<h2>Just Between Friends 🤞</h2>
-<p>No matter life em jarigina...</p>
-<img src="photos/s10.jpeg"><img src="photos/pic8.jpeg">
-</div>
-
-<div class="section">
-<p>Happiest Birthday once again Lavanya 🎂🥳🎉...</p>
-</div>
-
-<div class="section">
-<h2>Memories 🎥</h2>
-<video controls src="videos/v1.mp4"></video>
-<video controls src="videos/v2.mp4"></video>
-<video controls src="videos/v3.mp4"></video>
-</div>
-
-<audio id="bgMusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
 function openGift(){
-  document.getElementById("giftScreen").style.display="none";
-  document.getElementById("bgMusic").play().catch(()=>{});
+  const intro = document.getElementById("giftIntro");
+
+  intro.style.opacity = "0";
+
+  setTimeout(()=>{
+    intro.style.display = "none";
+    document.getElementById('bgMusic')?.play().catch(()=>{});
+  },800);
 }
-
-/* Scroll reveal */
-const sections = document.querySelectorAll(".section");
-
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-
-      if(entry.target.id === "birthday"){
-        confetti({particleCount:150,spread:70,origin:{y:0.6}});
-      }
-    }
-  });
-},{threshold:0.3});
-
-sections.forEach(sec=>observer.observe(sec));
-
-/* Pause music on video */
-document.querySelectorAll("video").forEach(v=>{
-  v.onplay=()=>document.getElementById("bgMusic").pause();
-  v.onpause=()=>document.getElementById("bgMusic").play();
-});
 </script>
-
-</body>
-</html>
