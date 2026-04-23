@@ -210,34 +210,34 @@ Keep shining, keep smiling 😊, and always remember — you are deeply valued, 
 <video controls src="videos/v6.mp4"></video>
 </div>
 
-  <script>
+<audio id="bgMusic" loop>
+<source src="audio/music.mpeg" type="audio/mpeg">
+</audio>
+  
+<script>
 const music = document.getElementById("bgMusic");
 let musicStarted = false;
 
+// 🎵 Start music once (mobile + desktop)
 function startMusicOnce(){
-  if(!musicStarted){
+  if(!musicStarted && music){
     music.play().then(()=>{
       musicStarted = true;
     }).catch(()=>{});
   }
 }
 
-// ✅ mobile + desktop reliable triggers
+// triggers
 document.addEventListener("touchstart", startMusicOnce, { once: true });
 document.addEventListener("click", startMusicOnce, { once: true });
 
-// ✅ ALSO trigger when Start button is clicked (important fallback)
+// Start button
 function startExperience(){
-  startMusicOnce();   // <-- ADD THIS
+  startMusicOnce();
   n(1);
 }
-</script>
 
 // Slide navigation
-function startExperience(){
-  n(1);
-}
-
 function n(x){
   const current = document.getElementById('s'+x);
   const next = document.getElementById('s'+(x+1));
@@ -265,9 +265,9 @@ function launchConfetti(){
   });
 }
 
-// Pause/resume music for videos
+// Pause/resume for videos
 document.querySelectorAll("video").forEach(v=>{
-  v.onplay = () => { if(!music.paused) music.pause(); };
+  v.onplay = () => { if(music && !music.paused) music.pause(); };
   v.onpause = () => { if(musicStarted) music.play().catch(()=>{}); };
   v.onended = () => { if(musicStarted) music.play().catch(()=>{}); };
 });
