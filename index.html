@@ -4,21 +4,99 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Lavanya 🎉</title>
+
 <style>
-body {margin:0;font-family:'Segoe UI';background:linear-gradient(120deg,#ff9a9e,#fad0c4);color:white;text-align:center;}
-.container{padding:40px 20px;}
-.hidden{display:none;}
-button{padding:12px 24px;border:none;border-radius:25px;background:white;color:#ff4e50;cursor:pointer;margin-top:20px;}
-img{width:180px;border-radius:12px;margin:8px;}
-video{width:250px;margin:10px;border-radius:10px;}
-.quote{font-style:italic;margin-top:15px;}
+body {
+  margin:0;
+  font-family:'Segoe UI';
+  background:linear-gradient(120deg,#ff9a9e,#fad0c4);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+/* Floating background */
+body::before {
+  content:'';
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 10%);
+  background-size:50px 50px;
+  animation:moveBg 20s linear infinite;
+  z-index:-1;
+}
+
+@keyframes moveBg {
+  from {transform:translate(0,0);}
+  to {transform:translate(-200px,-200px);}
+}
+
+.container {
+  padding:40px 20px;
+  animation:fadeIn 1s ease;
+}
+
+.hidden {
+  display:none;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+button {
+  padding:12px 24px;
+  border:none;
+  border-radius:25px;
+  background:white;
+  color:#ff4e50;
+  cursor:pointer;
+  margin-top:20px;
+  transition:all 0.3s ease;
+}
+
+button:hover {
+  transform:scale(1.1);
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+img {
+  width:180px;
+  border-radius:12px;
+  margin:8px;
+  transition:transform 0.3s ease;
+}
+
+img:hover {
+  transform:scale(1.08);
+}
+
+video {
+  width:250px;
+  margin:10px;
+  border-radius:10px;
+  transition:transform 0.3s ease;
+}
+
+video:hover {
+  transform:scale(1.05);
+}
+
+.quote {
+  font-style:italic;
+  margin-top:15px;
+  opacity:0.9;
+}
 </style>
 </head>
+
 <body>
 
 <div class="container" id="s1">
 <p>Hey 👀<br>Before you do anything else today,<br>just take 2 minutes and go through this 🙂</p>
-<button onclick="n(1)">Start 🚀</button>
+<button onclick="startExperience()">Start 🚀</button>
 </div>
 
 <div class="container hidden" id="s2">
@@ -40,7 +118,7 @@ Anduke roju morning Message chestha nuvvu dekavu annuko adi vere vishyam...<br><
 Today is not just your birthday, today is the day my favorite human was born 💫.</p>
 <p class="quote">“Some people enter life and become a memory, but you entered my life and became an emotion.” ✨</p>
 <img src="photos/s3_1.jpeg"><img src="photos/s3_2.jpeg">
-<br><button onclick="n(3)">Next ➡️</button>
+<br><button onclick="n(3); launchConfetti();">Next ➡️</button>
 </div>
 
 <div class="container hidden" id="s4">
@@ -109,8 +187,45 @@ Keep shining, keep smiling 😊, and always remember — you are deeply valued, 
 <video controls src="videos/v6.mp4"></video>
 </div>
 
+<!-- Music -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script>
-function n(x){document.getElementById('s'+x).classList.add('hidden');document.getElementById('s'+(x+1)).classList.remove('hidden');}
+function startExperience(){
+  document.getElementById('bgMusic').play().catch(()=>{});
+  n(1);
+}
+
+function n(x){
+  const current = document.getElementById('s'+x);
+  const next = document.getElementById('s'+(x+1));
+
+  current.style.opacity = 0;
+
+  setTimeout(()=>{
+    current.classList.add('hidden');
+    next.classList.remove('hidden');
+    next.style.opacity = 0;
+
+    setTimeout(()=>{
+      next.style.opacity = 1;
+    },50);
+
+  },300);
+}
+
+function launchConfetti(){
+  confetti({
+    particleCount:150,
+    spread:70,
+    origin:{y:0.6}
+  });
+}
 </script>
 
 </body>
